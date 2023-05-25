@@ -4,31 +4,44 @@ An experiment in implementing granular unlearning, with the idea of encouraging 
 ~~~ruby
 # Standard unlearning
 def unlearn
-  print "Which dataset? >> " erase = gets.chomp
-  
-  dataset = File.readlines("_data/known_datasets.txt")
+  print "Which dataset? >> "; erase = gets.chomp
   
   system("rm _data/#{erase}.nb")
+
+  sleep(3)
+
+  system("ruby conlang_saver.rb")
 end
 
 # Bulk unlearning
 def gforget
   row = 0
   
-  datasets = File.readlines("_data/known_datasets.txt")
+  datasets = File.readlines("_data/index/known_datasets.txt")
   
-  print "How many datasets? >> "; which = gets.chomp.to_i
+  print "How many datasets? >> "; howmany = gets.chomp.to_i
   
   
   howmany.times do
-    system("rm _data/#{datasets[row]}")
+    directory_file = datasets[row].to_s
+
+    system("rm _data/language/#{directory_file}")
     
     row = row + 1
   end
 end
 
 # Use with last resort
-def soft_reset
-  system("rm -r _data; mkdir _data")
+def execute
+  # systematically remake the program.
+  system("rm -r _data; mkdir    _data; cd _data;
+          mkdir index; mkdir language; cd index; touch known_datasets.txt")
+
+  # Retrain datasets automatically
+  system("ruby conlang_saver.rb; ruby data_saver.rb")
 end
+
+# unlearn
+# gforget
+execute
 ~~~
