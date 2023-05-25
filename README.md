@@ -1,2 +1,2 @@
 # Multi Nodal Baysian Unlearning
-Just a test implementation for machine unlearning.
+An experiment in implementing granular unlearning, with the idea of encouraging more lenient forms of unlearning in ML.
