@@ -1,6 +1,8 @@
 # Multi Nodal Baysian Unlearning
 An experiment in implementing granular unlearning, with the idea of encouraging more lenient forms of unlearning in ML.
 
+This is a work around to the baysian gem I use not having built in unlearning.
+
 ~~~ruby
 # Standard unlearning
 def unlearn
