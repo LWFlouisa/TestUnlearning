@@ -11,15 +11,20 @@ def unlearn
   system("rm _data/#{erase}.nb")
 end
 
-# Random unlearnimg
+# Bulk unlearning
 def gforget
   row = 0
   
   datasets = File.readlines("_data/known_datasets.txt")
   
-  print "Which dataset? >> "; which = gets.chomp.to_i
+  print "How many datasets? >> "; which = gets.chomp.to_i
   
-  system("rm _data/#{datasets[which]}")
+  
+  howmany.times do
+    system("rm _data/#{datasets[row]}")
+    
+    row = row + 1
+  end
 end
 
 # Use with last resort
