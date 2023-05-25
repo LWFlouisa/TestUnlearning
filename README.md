@@ -32,7 +32,7 @@ def gforget
 end
 
 # Use with last resort
-def execute
+def hard_reset
   # systematically remake the program.
   system("rm -r _data; mkdir    _data; cd _data;
           mkdir index; mkdir language; cd index; touch known_datasets.txt")
@@ -43,5 +43,5 @@ end
 
 # unlearn
 # gforget
-execute
+hard_reset
 ~~~
