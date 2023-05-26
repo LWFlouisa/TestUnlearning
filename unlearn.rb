@@ -37,6 +37,6 @@ def execute
   system("ruby conlang_saver.rb; ruby data_saver.rb")
 end
 
-# unlearn
+unlearn
 # gforget
-execute
+# execute
